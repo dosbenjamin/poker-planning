@@ -1,5 +1,6 @@
-import './globals.css';
+import 'styles/globals.css';
 import { Inter } from 'next/font/google';
+import { PocketBaseProvider } from 'libs/pocketbase/client';
 import type { PropsWithChildren } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -14,7 +15,9 @@ type RootLayoutProps = PropsWithChildren;
 const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <PocketBaseProvider>{children}</PocketBaseProvider>
+      </body>
     </html>
   );
 };
