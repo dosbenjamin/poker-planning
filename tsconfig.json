@@ -34,7 +34,7 @@
       "shared/*": ["./src/shared/*"],
       "lib/*": ["./src/lib/*"],
       "features/*": ["./src/features/*"],
-      "style-system/*": ["./style-system/*"],
+      "styled-system/*": ["./styled-system/*"],
       "styles/*": ["./src/styles/*"],
       "env": ["./src/env"]
     },

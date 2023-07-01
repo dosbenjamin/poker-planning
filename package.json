@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "codegen:panda": "panda codegen",
+    "codegen:pocketbase": "pocketbase-typegen --env --out ./src/lib/pocketbase/types/index.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@pandacss/dev": "^0.5.0",
     "@t3-oss/env-nextjs": "^0.6.0",
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
@@ -21,12 +23,10 @@
     "eslint-config-next": "13.4.7",
     "next": "13.4.7",
     "pocketbase": "^0.15.2",
+    "pocketbase-typegen": "^1.1.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6",
     "zod": "^3.21.4"
-  },
-  "devDependencies": {
-    "@pandacss/dev": "^0.5.0"
   }
 }

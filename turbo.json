@@ -1,0 +1,18 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "codegen:panda": {},
+    "codegen:pocketbase": {},
+    "lint": {
+      "dependsOn": ["codegen:panda", "codegen:pocketbase"]
+    },
+    "build": {
+      "dependsOn": ["lint"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
