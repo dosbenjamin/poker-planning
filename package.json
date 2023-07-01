@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prepare": "panda codegen",
-    "dev": "next dev --turbo",
+    "codegen:panda": "panda codegen",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
