@@ -1,18 +1,10 @@
-import { css } from 'styled-system/css';
+import { container } from 'styled-system/patterns';
 
 const HomePage = (): JSX.Element => {
   return (
-    <main
-      className={css({
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'column',
-        height: 'screen',
-        justifyContent: 'center',
-      })}
-    >
-      <h1>Homepage</h1>
-      <h2>Coming soon!</h2>
+    <main className={container()}>
+      <h1>Join a room</h1>
+      <form></form>
     </main>
   );
 };

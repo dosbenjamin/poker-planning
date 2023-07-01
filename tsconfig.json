@@ -32,7 +32,7 @@
     ],
     "paths": {
       "shared/*": ["./src/shared/*"],
-      "libs/*": ["./src/libs/*"],
+      "lib/*": ["./src/lib/*"],
       "features/*": ["./src/features/*"],
       "style-system/*": ["./style-system/*"],
       "styles/*": ["./src/styles/*"],

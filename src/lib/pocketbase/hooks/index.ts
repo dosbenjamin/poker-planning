@@ -1,4 +1,4 @@
-import { PocketBaseContext } from 'libs/pocketbase/client';
+import { PocketBaseContext } from 'lib/pocketbase/client';
 import { useContext } from 'react';
 
 export const usePocketBase = (): PocketBaseContext => {

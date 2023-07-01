@@ -1,6 +1,6 @@
 'use client';
 
-import { PocketBaseContext, pocketbase } from 'libs/pocketbase/client';
+import { PocketBaseContext, pocketbase } from 'lib/pocketbase/client';
 import type { PropsWithChildren } from 'react';
 
 type PocketBaseProviderProps = PropsWithChildren;
