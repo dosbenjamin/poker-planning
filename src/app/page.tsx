@@ -1,4 +1,4 @@
-import { CreateRoomForm } from 'features/rooms/server';
+import { CreateRoomForm } from 'features/rooms/client';
 import { container } from 'styled-system/patterns';
 import { styled } from 'styled-system/jsx';
 
