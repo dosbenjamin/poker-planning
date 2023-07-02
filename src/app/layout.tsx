@@ -6,14 +6,12 @@ import { inter } from 'styles/fonts';
 
 type RootLayoutProps = PropsWithChildren;
 
-const RootLayout = ({ children }: RootLayoutProps): JSX.Element => {
-  return (
-    <html lang="en" className={inter.variable}>
-      <body className={center({ bg: 'slate.900', fontFamily: 'body', h: 'screen' })}>
-        <PocketBaseProvider>{children}</PocketBaseProvider>
-      </body>
-    </html>
-  );
-};
+const RootLayout = ({ children }: RootLayoutProps): JSX.Element => (
+  <html lang="en" className={inter.variable}>
+    <body className={center({ bg: 'slate.900', fontFamily: 'body', h: 'screen' })}>
+      <PocketBaseProvider>{children}</PocketBaseProvider>
+    </body>
+  </html>
+);
 
 export default RootLayout;

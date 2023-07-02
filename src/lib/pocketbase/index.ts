@@ -1,1 +1,1 @@
-export * from 'lib/pocketbase/types';
+export * from 'lib/pocketbase/schemas';

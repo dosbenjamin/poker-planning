@@ -1,4 +1,5 @@
 import { JoinRoomForm } from 'features/rooms/client';
+import { JoinRoomPageParamsSchema } from 'features/rooms';
 import { container } from 'styled-system/patterns';
 import { en } from 'locales';
 import { readRoom } from 'features/rooms/server';
@@ -13,7 +14,8 @@ type JoinRoomPageProps = {
 };
 
 const JoinRoomPage = async ({ params }: JoinRoomPageProps): Promise<JSX.Element> => {
-  const room = await readRoom(params.roomId);
+  const { roomId } = JoinRoomPageParamsSchema.parse(params);
+  const room = await readRoom(roomId);
 
   return (
     <styled.main className={container()}>

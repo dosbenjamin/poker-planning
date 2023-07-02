@@ -42,4 +42,4 @@ next-env.d.ts
 styled-system/
 
 # pocketbase
-**/*/pocketbase/types/
+src/shared/types/generated.ts

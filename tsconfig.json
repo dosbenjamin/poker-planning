@@ -32,6 +32,7 @@
     ],
     "paths": {
       "shared/*": ["./src/shared/*"],
+      "shared": ["./src/shared"],
       "lib/*": ["./src/lib/*"],
       "features/*": ["./src/features/*"],
       "styled-system/*": ["./styled-system/*"],

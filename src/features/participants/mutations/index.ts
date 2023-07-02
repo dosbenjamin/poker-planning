@@ -1,4 +1,4 @@
-import { Collections, type ParticipantsRecord, type ParticipantsResponse } from 'lib/pocketbase';
+import { Collections, type ParticipantsRecord, type ParticipantsResponse } from 'shared';
 import { CreateParticipantInputSchema, CreateParticipantOutputSchema } from 'features/participants';
 import { pocketbase } from 'lib/pocketbase/server';
 

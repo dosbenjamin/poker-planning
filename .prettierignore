@@ -1,4 +1,4 @@
 .next/
 styled-system/
-src/lib/pocketbase/types/index.ts
+src/shared/types/generated.ts
 pnpm-lock.yaml
