@@ -1,3 +1,3 @@
-export const SWRKeys = {
-  createRoom: 'create-room',
-} as const;
+export const mutationKeys = {
+  getCreateRoom: (): string => 'create-room',
+};

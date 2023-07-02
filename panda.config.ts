@@ -102,6 +102,15 @@ export default defineConfig({
             },
           },
         },
+        description: {
+          small: {
+            value: {
+              fontSize: 'sm',
+              fontVariationSettings: '"wght" 400',
+              lineHeight: '1.1428571429',
+            },
+          },
+        },
       }),
       tokens: {
         fonts: {

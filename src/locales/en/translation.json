@@ -4,12 +4,17 @@
       "title": "Create a new room",
       "submit": "Let's plan!"
     },
+    "join": {
+      "title": "Join a room",
+      "roomName": "Room name:",
+      "submit": "Let's join the planning!"
+    },
     "fields": {
       "roomName": {
         "label": "Room name",
         "placeholder": "Insert a name for your new room"
       },
-      "ownerName": {
+      "participantName": {
         "label": "Your name",
         "placeholder": "Insert your name"
       }

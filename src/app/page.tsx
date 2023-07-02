@@ -7,11 +7,11 @@ export const metadata = {
   title: en.rooms.create.title,
 };
 
-const HomePage = (): JSX.Element => (
+const CreateRoomPage = (): JSX.Element => (
   <main className={container()}>
     <styled.h1 textStyle="heading.page">{en.rooms.create.title}</styled.h1>
     <CreateRoomForm />
   </main>
 );
 
-export default HomePage;
+export default CreateRoomPage;

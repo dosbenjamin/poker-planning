@@ -29,11 +29,14 @@ export const CreateRoomForm = (): JSX.Element => {
     >
       <FormControl>
         <FormLabel>{en.rooms.fields.roomName.label}</FormLabel>
-        <FormInput placeholder={en.rooms.fields.roomName.placeholder} {...register(CREATE_ROOM_FORM_KEYS.roomName)} />
+        <FormInput placeholder={en.rooms.fields.roomName.placeholder} {...register(CREATE_ROOM_FORM_KEYS.ROOM_NAME)} />
       </FormControl>
       <FormControl>
-        <FormLabel>{en.rooms.fields.ownerName.label}</FormLabel>
-        <FormInput placeholder={en.rooms.fields.ownerName.placeholder} {...register(CREATE_ROOM_FORM_KEYS.ownerName)} />
+        <FormLabel>{en.rooms.fields.participantName.label}</FormLabel>
+        <FormInput
+          placeholder={en.rooms.fields.participantName.placeholder}
+          {...register(CREATE_ROOM_FORM_KEYS.OWNER_NAME)}
+        />
       </FormControl>
       <Button disabled={isCreatingRoom} aria-busy={isCreatingRoom}>
         {en.rooms.create.submit}
