@@ -1,14 +1,15 @@
 import { CreateRoomForm } from 'features/rooms/client';
 import { container } from 'styled-system/patterns';
+import { en } from 'locales';
 import { styled } from 'styled-system/jsx';
 
 export const metadata = {
-  title: 'Create a new room',
+  title: en.rooms.create.title,
 };
 
 const HomePage = (): JSX.Element => (
   <main className={container()}>
-    <styled.h1 textStyle="heading.page">Create a new room</styled.h1>
+    <styled.h1 textStyle="heading.page">{en.rooms.create.title}</styled.h1>
     <CreateRoomForm />
   </main>
 );

@@ -2,6 +2,7 @@
 
 import { Button, FormControl, FormInput, FormLabel } from 'styled-system/jsx';
 import { CREATE_ROOM_FORM_KEYS, CreateRoomFormSchema } from 'features/rooms';
+import { en } from 'locales';
 import { stack } from 'styled-system/patterns';
 import { useCreateRoom } from 'features/rooms/client';
 import { useForm } from 'react-hook-form';
@@ -27,14 +28,16 @@ export const CreateRoomForm = (): JSX.Element => {
       className={stack({ gap: '4' })}
     >
       <FormControl>
-        <FormLabel>Room name</FormLabel>
-        <FormInput placeholder="Insert a name for your new room" {...register(CREATE_ROOM_FORM_KEYS.roomName)} />
+        <FormLabel>{en.rooms.fields.roomName.label}</FormLabel>
+        <FormInput placeholder={en.rooms.fields.roomName.placeholder} {...register(CREATE_ROOM_FORM_KEYS.roomName)} />
       </FormControl>
       <FormControl>
-        <FormLabel>Your name</FormLabel>
-        <FormInput placeholder="Insert your name" {...register(CREATE_ROOM_FORM_KEYS.ownerName)} />
+        <FormLabel>{en.rooms.fields.ownerName.label}</FormLabel>
+        <FormInput placeholder={en.rooms.fields.ownerName.placeholder} {...register(CREATE_ROOM_FORM_KEYS.ownerName)} />
       </FormControl>
-      <Button data-loading={isCreatingRoom}>Let&apos;s plan!</Button>
+      <Button disabled={isCreatingRoom} aria-busy={isCreatingRoom}>
+        {en.rooms.create.submit}
+      </Button>
     </form>
   );
 };

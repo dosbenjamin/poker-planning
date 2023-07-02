@@ -36,7 +36,9 @@
       "features/*": ["./src/features/*"],
       "styled-system/*": ["./styled-system/*"],
       "styles/*": ["./src/styles/*"],
-      "env": ["./src/env"]
+      "env": ["./src/env"],
+      "locales/*": ["./src/locales/*"],
+      "locales": ["./src/locales"]
     },
     "baseUrl": "."
   },
