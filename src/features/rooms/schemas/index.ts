@@ -9,8 +9,6 @@ export type CreateRoomFormSchema = z.infer<typeof CreateRoomFormSchema>;
 
 export const CreateRoomInputSchema = z.object({
   name: z.string().min(1),
-  owner: z.string().min(1),
-  participants: z.string().min(1).array(),
 });
 export type CreateRoomInputSchema = z.infer<typeof CreateRoomInputSchema>;
 

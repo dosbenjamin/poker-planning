@@ -6,14 +6,14 @@ import { createParticipant } from 'features/participants/server';
 import { createRoom } from 'features/rooms/server';
 
 export const createRoomAction = async (formData: FormData): Promise<void> => {
-  const owner = await createParticipant({
-    name: formData.get(CREATE_ROOM_FORM_KEYS.ownerName),
-  });
-
   const room = await createRoom({
     name: formData.get(CREATE_ROOM_FORM_KEYS.roomName),
-    owner: owner.id,
-    participants: [owner.id],
+  });
+
+  await createParticipant({
+    isOwner: true,
+    name: formData.get(CREATE_ROOM_FORM_KEYS.ownerName),
+    room: room.id,
   });
 
   cookies().set(ROOM_ID_COOKIE_NAME, room.id);
