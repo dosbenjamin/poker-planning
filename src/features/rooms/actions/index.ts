@@ -13,6 +13,7 @@ export const createRoomAction = async (formData: FormData): Promise<void> => {
   const room = await createRoom({
     name: formData.get(CREATE_ROOM_FORM_KEYS.roomName),
     owner: owner.id,
+    participants: [owner.id],
   });
 
   cookies().set(ROOM_ID_COOKIE_NAME, room.id);
