@@ -9,8 +9,16 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "parserOptions": {
-    "project": ["tsconfig.eslint.json"]
+    "project": ["./tsconfig.eslint.json"]
   },
+  "overrides": [
+    {
+      "files": ["./panda.config.ts"],
+      "rules": {
+        "sort-keys": "off"
+      }
+    }
+  ],
   "rules": {
     "array-callback-return": "error",
     "no-duplicate-imports": "error",

@@ -8,12 +8,6 @@ export default defineConfig({
       button: definePattern({
         jsxElement: 'button',
         transform: (props) => ({
-          _active: {
-            bg: 'slate.700',
-          },
-          _hover: {
-            bg: 'slate.600',
-          },
           bg: 'slate.500',
           color: 'slate.50',
           fontVariationSettings: '"wght" 700',
@@ -21,6 +15,12 @@ export default defineConfig({
           rounded: 'lg',
           textAlign: 'center',
           transition: 'background 250ms',
+          _hover: {
+            bg: 'slate.600',
+          },
+          _active: {
+            bg: 'slate.700',
+          },
           ...props,
         }),
       }),
@@ -56,18 +56,6 @@ export default defineConfig({
       formInput: definePattern({
         jsxElement: 'input',
         transform: (props) => ({
-          _focus: {
-            '&:hover': {
-              borderColor: 'slate.400',
-            },
-            borderColor: 'slate.400',
-          },
-          _hover: {
-            borderColor: 'slate.300',
-          },
-          _placeholder: {
-            color: 'slate.400',
-          },
           bg: 'slate.200',
           borderColor: 'slate.300',
           borderWidth: 'thin',
@@ -77,6 +65,18 @@ export default defineConfig({
           p: '4',
           rounded: 'lg',
           transition: 'border-color 250ms',
+          _placeholder: {
+            color: 'slate.400',
+          },
+          _hover: {
+            borderColor: 'slate.400',
+          },
+          _focus: {
+            borderColor: 'slate.600',
+            '&:hover': {
+              borderColor: 'slate.600',
+            },
+          },
           ...props,
         }),
       }),
