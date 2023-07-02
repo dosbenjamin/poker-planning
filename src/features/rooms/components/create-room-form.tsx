@@ -1,12 +1,15 @@
 'use client';
 
 import { Button, FormControl, FormInput, FormLabel } from 'styled-system/jsx';
-import { CREATE_ROOM_FORM_KEYS, CreateRoomFormSchema, createRoomAction } from 'features/rooms';
+import { CREATE_ROOM_FORM_KEYS, CreateRoomFormSchema } from 'features/rooms';
 import { stack } from 'styled-system/patterns';
+import { useCreateRoom } from 'features/rooms/client';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 export const CreateRoomForm = (): JSX.Element => {
+  const { isMutating: isCreatingRoom, trigger: createRoom } = useCreateRoom();
+
   const { handleSubmit, register } = useForm<CreateRoomFormSchema>({
     resolver: zodResolver(CreateRoomFormSchema),
   });
@@ -14,7 +17,7 @@ export const CreateRoomForm = (): JSX.Element => {
   const handleCreateRoom = handleSubmit(async (_, event) => {
     const form = event?.target as HTMLFormElement;
     const formData = new FormData(form);
-    await createRoomAction(formData);
+    await createRoom(formData);
   });
 
   return (
@@ -31,7 +34,7 @@ export const CreateRoomForm = (): JSX.Element => {
         <FormLabel>Your name</FormLabel>
         <FormInput placeholder="Insert your name" {...register(CREATE_ROOM_FORM_KEYS.ownerName)} />
       </FormControl>
-      <Button>Let&apos;s plan!</Button>
+      <Button data-loading={isCreatingRoom}>Let&apos;s plan!</Button>
     </form>
   );
 };
