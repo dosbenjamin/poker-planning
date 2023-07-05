@@ -68,3 +68,10 @@ export const RoomPageParamsSchema = z.object({
   roomId: PocketBaseIdSchema,
 });
 export type RoomPageParamsSchema = z.infer<typeof RoomPageParamsSchema>;
+
+// Subscriptions
+export const SubscribeRoomInputSchema = PocketBaseIdSchema;
+export type SubscribeRoomInputSchema = z.infer<typeof SubscribeRoomInputSchema>;
+
+export const SubscribeRoomOutputSchema = ReadRoomOutputSchema;
+export type SubscribeRoomOutputSchema = z.infer<typeof SubscribeRoomOutputSchema>;

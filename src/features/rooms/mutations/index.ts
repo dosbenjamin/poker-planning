@@ -7,21 +7,23 @@ import {
 } from 'features/rooms';
 import { pocketbase } from 'lib/pocketbase/server';
 
-export const createRoom = async (values: Record<keyof RoomsRecord, unknown>): Promise<CreateRoomOutputSchema> => {
-  const validatedValues = CreateRoomInputSchema.parse(values);
+export const createRoom = async (roomValues: Record<keyof RoomsRecord, unknown>): Promise<CreateRoomOutputSchema> => {
+  const validatedRoomValues = CreateRoomInputSchema.parse(roomValues);
 
-  const room = await pocketbase.collection(Collections.Rooms).create<RoomsResponse>(validatedValues);
+  const room = await pocketbase.collection(Collections.Rooms).create<RoomsResponse>(validatedRoomValues);
 
   return CreateRoomOutputSchema.parse(room);
 };
 
 export const updateRoom = async (
-  id: unknown,
-  values: Partial<Record<keyof RoomsRecord, unknown>>,
+  roomId: unknown,
+  roomValues: Partial<Record<keyof RoomsRecord, unknown>>,
 ): Promise<UpdateRoomOutputSchema> => {
-  const { id: validatedId, ...validatedValues } = UpdateRoomInputSchema.parse({ id, ...values });
+  const { id: validatedRoomId, ...validatedRoomValues } = UpdateRoomInputSchema.parse({ id: roomId, ...roomValues });
 
-  const room = await pocketbase.collection(Collections.Rooms).update<RoomsResponse>(validatedId, validatedValues);
+  const room = await pocketbase
+    .collection(Collections.Rooms)
+    .update<RoomsResponse>(validatedRoomId, validatedRoomValues);
 
   return UpdateRoomOutputSchema.parse(room);
 };

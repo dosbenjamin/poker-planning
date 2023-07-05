@@ -3,7 +3,6 @@
 import { Button, FormControl, FormInput, FormLabel } from 'styled-system/jsx';
 import { JOIN_ROOM_FORM_KEYS, JoinRoomFormSchema, JoinRoomPageParamsSchema } from 'features/rooms';
 import { en } from 'locales';
-import { mutationKeys } from 'shared';
 import { stack } from 'styled-system/patterns';
 import { useForm } from 'react-hook-form';
 import { useJoinRoom } from 'features/rooms/client';
@@ -14,7 +13,7 @@ export const JoinRoomForm = (): JSX.Element => {
   const params = useParams();
   const { roomId } = JoinRoomPageParamsSchema.parse(params);
 
-  const { isMutating: isJoiningRoom, trigger: joinRoom } = useJoinRoom(mutationKeys.getJoinRoom(roomId));
+  const { isMutating: isJoiningRoom, trigger: joinRoom } = useJoinRoom(roomId);
 
   const { handleSubmit, register, getValues } = useForm<JoinRoomFormSchema>({
     defaultValues: { roomId },

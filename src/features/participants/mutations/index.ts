@@ -3,13 +3,13 @@ import { CreateParticipantInputSchema, CreateParticipantOutputSchema } from 'fea
 import { pocketbase } from 'lib/pocketbase/server';
 
 export const createParticipant = async (
-  values: Record<keyof ParticipantsRecord, unknown>,
+  participantValues: Record<keyof ParticipantsRecord, unknown>,
 ): Promise<CreateParticipantOutputSchema> => {
-  const validatedValues = CreateParticipantInputSchema.parse(values);
+  const validatedParticipantValues = CreateParticipantInputSchema.parse(participantValues);
 
   const participant = await pocketbase
     .collection(Collections.Participants)
-    .create<ParticipantsResponse>(validatedValues);
+    .create<ParticipantsResponse>(validatedParticipantValues);
 
   return CreateParticipantOutputSchema.parse(participant);
 };

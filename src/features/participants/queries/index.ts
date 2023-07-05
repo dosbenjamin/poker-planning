@@ -2,11 +2,11 @@ import { Collections, type ParticipantsResponse } from 'shared';
 import { ReadManyParticipantsInputSchema, ReadManyParticipantsOutputSchema } from 'features/participants';
 import { pocketbase } from 'lib/pocketbase/client';
 
-export const readManyParticipants = async (ids: unknown[]): Promise<ReadManyParticipantsOutputSchema> => {
-  const validatedIds = ReadManyParticipantsInputSchema.parse(ids);
+export const readManyParticipants = async (participantIds: unknown[]): Promise<ReadManyParticipantsOutputSchema> => {
+  const validatedParticipantIds = ReadManyParticipantsInputSchema.parse(participantIds);
 
   const participants = await pocketbase.collection(Collections.Participants).getFullList<ParticipantsResponse>({
-    filter: validatedIds.map((id) => `id = '${id}'`).join(' || '),
+    filter: validatedParticipantIds.map((participantId) => `id = '${participantId}'`).join(' || '),
   });
 
   return ReadManyParticipantsOutputSchema.parse(participants);
