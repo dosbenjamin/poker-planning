@@ -1,11 +1,10 @@
 import { createRoomAction, joinRoomAction } from 'features/rooms/actions';
-import { mutationKeys, queryKeys, subscriptionKeys } from 'shared';
-import useSWR, { type SWRConfiguration, type SWRResponse } from 'swr';
+import { mutationKeys, subscriptionKeys } from 'shared';
 import useSWRMutation, { type SWRMutationConfiguration, type SWRMutationResponse } from 'swr/mutation';
 import useSWRSubscription, { type SWRSubscriptionResponse } from 'swr/subscription';
-import type { ReadManyParticipantsOutputSchema } from 'features/participants';
+import type { SWRConfiguration } from 'swr';
+
 import type { SubscribeRoomOutputSchema } from 'features/rooms';
-import { readManyParticipants } from 'features/participants/client';
 import { subscribeRoom } from 'features/rooms/client';
 import { useTransition } from 'react';
 
@@ -48,22 +47,6 @@ export const useSubscribeRoom = (
       });
       return () => unsubscribe;
     },
-    config,
-  );
-};
-
-export const useReadManyParticipants = (
-  participantIds: string[],
-  config?: SWRConfiguration<ReadManyParticipantsOutputSchema, void, typeof readManyParticipants>,
-): SWRResponse<
-  ReadManyParticipantsOutputSchema,
-  void,
-  SWRConfiguration<ReadManyParticipantsOutputSchema, void, typeof readManyParticipants>
-> => {
-  return useSWR(
-    queryKeys.getReadManyParticipants(participantIds),
-    ([, ...participantIds]) => readManyParticipants(participantIds),
-    // @ts-expect-error overload
     config,
   );
 };

@@ -1,6 +1,6 @@
-import { HStack, styled } from 'styled-system/jsx';
+import { Flex, styled } from 'styled-system/jsx';
 import { container, hstack } from 'styled-system/patterns';
-import { CopyURLButton } from 'shared/client';
+import { ParticipantsList } from 'features/participants/client';
 import { RoomPageParamsSchema } from 'features/rooms';
 import { readRoom } from 'features/rooms/server';
 
@@ -17,19 +17,19 @@ const RoomPage = async ({ params }: RoomPageProps): Promise<JSX.Element> => {
   const room = await readRoom(roomId);
 
   return (
-    <main className={container({ w: '2xl' })}>
+    <main className={container({ h: 'md', w: '2xl' })}>
       <header className={hstack()}>
         <div>
           <styled.h1 textStyle="heading.page" whiteSpace="nowrap" textOverflow="ellipsis" overflowX="hidden">
             {room.name}
           </styled.h1>
-          <HStack textStyle="description.small">
-            <CopyURLButton url={''} />
-            <p>5 connected</p>
-          </HStack>
         </div>
         <styled.div></styled.div>
       </header>
+      <Flex flex="1" gap="4">
+        <styled.div flexBasis="2/3">Game</styled.div>
+        <ParticipantsList room={room} />
+      </Flex>
     </main>
   );
 };

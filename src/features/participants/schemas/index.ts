@@ -19,14 +19,15 @@ export const ReadParticipantInputSchema = PocketBaseIdSchema;
 export type ReadParticipantInputSchema = z.infer<typeof ReadParticipantInputSchema>;
 
 export const ReadParticipantOutputSchema = z.object({
+  id: PocketBaseIdSchema,
   isConnected: z.boolean(),
   isOwner: z.boolean(),
   name: z.string().nonempty(),
 });
 export type ReadParticipantOutputSchema = z.infer<typeof ReadParticipantOutputSchema>;
 
-export const ReadManyParticipantsInputSchema = ReadParticipantInputSchema.array();
+export const ReadManyParticipantsInputSchema = ReadParticipantInputSchema.array().nonempty();
 export type ReadManyParticipantsInputSchema = z.infer<typeof ReadManyParticipantsInputSchema>;
 
-export const ReadManyParticipantsOutputSchema = ReadParticipantOutputSchema.array();
+export const ReadManyParticipantsOutputSchema = ReadParticipantOutputSchema.array().nonempty();
 export type ReadManyParticipantsOutputSchema = z.infer<typeof ReadManyParticipantsOutputSchema>;
